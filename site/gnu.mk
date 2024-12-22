@@ -43,7 +43,7 @@ endif
 INCLUDE += $(shell pkg-config --cflags yaml-0.1)
 FPPFLAGS := -cpp -Wp,-w $(INCLUDE)
 CPPFLAGS := $(shell pkg-config --cflags yaml-0.1)
-
+CFLAGS := $(INCLUDE) 
 FFLAGS := $(INCLUDE) -fcray-pointer -ffree-line-length-none -fno-range-check -fbacktrace -fallow-argument-mismatch
 
 ifeq ($(32BIT),Y)
@@ -78,7 +78,6 @@ TRANSCENDENTALS :=
 FFLAGS_OPENMP =  -fopenmp
 FFLAGS_VERBOSE = -v
 
-CFLAGS :=
 
 CFLAGS_OPT = -O2
 CFLAGS_REPRO = -O2 -ggdb

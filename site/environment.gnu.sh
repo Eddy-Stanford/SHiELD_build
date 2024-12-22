@@ -210,6 +210,26 @@ case $hostname in
        echo -e ' '
        module list
        ;;
+   *sh )
+       echo " sherlock environment " 
+       module load openmpi/5.0.5
+       spack load openmpi
+       spack load netcdf-c
+       spack load netcdf-fortran
+       spack load openblas
+       spack load hdf5
+
+       export FC=mpif90
+       export CC=mpicc
+       export CXX=mpicxx
+       export LD=mpif90
+       export TEMPLATE=site/gnu.mk
+
+       export AVX_LEVEL=-march=native
+
+       echo -e ' '
+       ;;
+
    * )
        echo " no environment available based on the hostname "
        ;;
