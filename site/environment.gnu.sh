@@ -210,7 +210,7 @@ case $hostname in
        echo -e ' '
        module list
        ;;
-   *sh )
+   sh* )
        echo " sherlock environment " 
        module load openmpi/5.0.5
        spack load openmpi
