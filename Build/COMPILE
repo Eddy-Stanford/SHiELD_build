@@ -53,7 +53,7 @@ spin()
   comp="prod"
   bit="32bit"
   avx="Y"
-  compiler="intel"
+  compiler="gnu"
   clean="noclean"
   pic="nopic"
 
