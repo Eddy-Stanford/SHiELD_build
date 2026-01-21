@@ -11,7 +11,7 @@
 #########
 # flags #
 #########
-DEBUG =
+DEBUG =1
 REPRO =
 VERBOSE =
 OPENMP =
@@ -33,9 +33,9 @@ MPI_ROOT    = $(MPICH_DIR)
 # start with blank LIB
 LIBS :=
 
-ifneq (`nc-config --libs`,)
-  INCLUDE = `nf-config --fflags` `nc-config --cflags`
-  LIBS += `nf-config --flibs` `nc-config --libs`
+ifneq ($(shell nc-config --libs),)
+  INCLUDE = $(shell nf-config --fflags) $(shell nc-config --cflags)
+  LIBS += $(shell nf-config --flibs) $(shell nc-config --libs)
 else
   INCLUDE = -I$(NETCDF_ROOT)/include
   LIBS += -lnetcdff -lnetcdf -lhdf5_hl -lhdf5 -lz
@@ -72,13 +72,13 @@ endif
 
 FFLAGS_OPT = -O2 -fno-range-check
 FFLAGS_REPRO = -O2 -ggdb -fno-range-check
-FFLAGS_DEBUG = -O0 -ggdb -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans -ffpe-trap=invalid,zero,overflow -fbounds-check
+FFLAGS_DEBUG = -O0 -ggdb -fbacktrace -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans  -fbounds-check
 
 TRANSCENDENTALS :=
 FFLAGS_OPENMP =  -fopenmp
 FFLAGS_VERBOSE = -v
 
-CFLAGS :=
+CFLAGS := $(INCLUDE)
 
 CFLAGS_OPT = -O2
 CFLAGS_REPRO = -O2 -ggdb

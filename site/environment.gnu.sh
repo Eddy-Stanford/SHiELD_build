@@ -211,6 +211,13 @@ case $hostname in
        module list
        ;;
    * )
-       echo " no environment available based on the hostname "
+       export TEMPLATE=site/gnu.mk
+       export LAUNCHER=srun
+       export FC=mpif90
+       export CC=mpicc
+       export CXX=mpicxx
+       export LD=mpif90
+       export AVX_LEVEL=-march=native
+       echo " no environment available based on the hostname, using default."
        ;;
 esac
