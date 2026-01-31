@@ -220,7 +220,7 @@ case $hostname in
        export LD=mpif90
        export AVX_LEVEL=-march=native
     ;;
-    *)
-       echo " no environment available based on the hostname, using default."
-       ;;
+   * )
+       echo " no environment available based on the hostname "
+    ;;
 esac
