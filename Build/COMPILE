@@ -53,8 +53,8 @@ spin()
   comp="prod"
   bit="32bit"
   avx="Y"
-  compiler="intel"
-  clean="noclean"
+  compiler="gnu"
+  clean="cleanall"
   pic="nopic"
 
   config_name="SHiELD"

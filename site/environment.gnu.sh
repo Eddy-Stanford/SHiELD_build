@@ -210,7 +210,17 @@ case $hostname in
        echo -e ' '
        module list
        ;;
+   sh03*|sh04* )
+       echo "Stanford Sherlock Environment"
+       export TEMPLATE=site/gnu.mk
+       export LAUNCHER=srun
+       export FC=mpif90
+       export CC=mpicc
+       export CXX=mpicxx
+       export LD=mpif90
+       export AVX_LEVEL=-march=native
+    ;;
    * )
        echo " no environment available based on the hostname "
-       ;;
+    ;;
 esac
