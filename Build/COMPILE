@@ -51,10 +51,10 @@ spin()
   config="shield"
   hydro="nh"
   comp="prod"
-  bit="64bit"
+  bit="32bit"
   avx="Y"
   compiler="gnu"
-  clean="clean"
+  clean="cleanall"
   pic="nopic"
 
   config_name="SHiELD"
